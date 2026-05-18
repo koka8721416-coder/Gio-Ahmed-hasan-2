@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان علم الحشرات 2 - جامعة سوهاج | كلية العلوم</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #e0f2e9 0%, #c8e6df 100%);
+            font-family: 'Segoe UI', 'Cairo', 'Tahoma', sans-serif;
+            padding: 20px;
+            color: #1e3c2c;
+        }
+        .exam-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fffef7;
+            border-radius: 48px;
+            box-shadow: 0 20px 35px rgba(0, 20, 0, 0.2);
+            overflow: hidden;
+            border: 1px solid #b8d9aa;
+        }
+        /* header الجامعة */
+        .header-univ {
+            background: #1b4d1b;
+            padding: 20px 28px;
+            color: white;
+            border-bottom: 6px solid #ffb84d;
+        }
+        .uni-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+        .sub-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            gap: 12px;
+            background: #2c6e2c;
+            padding: 10px 18px;
+            border-radius: 48px;
+        }
+        .exam-meta {
+            background: #fef3d6;
+            padding: 16px 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-bottom: 2px dashed #c0d6b3;
+            font-weight: bold;
+            color: #2b4b1a;
+        }
+        .score-box {
+            background: #1f3b1a;
+            color: #ffde9c;
+            padding: 5px 14px;
+            border-radius: 60px;
+        }
+        .content {
+            padding: 20px 30px 40px;
+        }
+        .question-card {
+            background: #fefcf0;
+            border-radius: 32px;
+            padding: 18px 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #d9e8cf;
+            transition: 0.2s;
+        }
+        .q-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            background: #eaf7e3;
+            padding: 10px 18px;
+            border-radius: 50px;
+            color: #1a451a;
+        }
+        .options {
+            list-style: none;
+            padding-right: 15px;
+        }
+        .options li {
+            margin: 12px 0;
+            padding: 6px 12px;
+            background: #ffffff;
+            border-radius: 40px;
+            border: 1px solid #cfdfc2;
+            transition: 0.1s;
+            cursor: pointer;
+        }
+        .options li:hover {
+            background: #d9f0cd;
+        }
+        input[type="radio"] {
+            margin-left: 14px;
+            transform: scale(1.1);
+            accent-color: #2b6e2b;
+        }
+        .btn-correct {
+            background: #f0a500;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 80px;
+            font-weight: bold;
+            color: #262216;
+            margin-top: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+        .btn-correct:hover {
+            background: #e08900;
+            transform: scale(1.01);
+        }
+        .feedback {
+            margin-top: 14px;
+            padding: 10px 15px;
+            border-radius: 28px;
+            background: #f1f9eb;
+            font-size: 0.85rem;
+            border-right: 6px solid #8bc34a;
+        }
+        .correct-feedback {
+            background: #d9f0c5;
+            border-right-color: #2e7d32;
+        }
+        .wrong-feedback {
+            background: #ffe1df;
+            border-right-color: #c62828;
+        }
+        .submit-area {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .submit-exam {
+            background: #1f7042;
+            color: white;
+            padding: 14px 36px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 60px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .submit-exam:hover {
+            background: #0e562e;
+            transform: scale(1.02);
+        }
+        .result-box {
+            background: #e9f5e3;
+            border-radius: 40px;
+            padding: 16px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+        .whatsapp-float {
+            display: inline-flex;
+            background: #25d366;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 60px;
+            text-decoration: none;
+            gap: 12px;
+            font-weight: bold;
+            margin-top: 20px;
+            align-items: center;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #517a3e;
+            border-top: 1px solid #cfe2bf;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 700px) {
+            .content { padding: 15px; }
+        }
+        .prof-info {
+            font-weight: normal;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="exam-container">
+    <div class="header-univ">
+        <div class="uni-title">🏛️ جامعة سوهاج - كلية العلوم</div>
+        <div class="sub-info">
+            <span>المادة: علم الحشرات 2 (BGS234)</span>
+            <span>الفرقة الثانية – تخصص علوم بيولوجية & جيولوجية (إعدادي & ثانوي)</span>
+            <span>كلية التربية – لائحة موحدة</span>
+        </div>
+    </div>
+    <div class="exam-meta">
+        <span>📅 تاريخ الامتحان: ٢٠٢٥/٥/١٨ م</span>
+        <span>⏰ الزمن: ساعتان (9-11 صباحاً)</span>
+        <span>📖 الفصل الدراسي الثاني ٢٠٢٤-٢٠٢٥م</span>
+        <span class="score-box">🗒️ مجموع الدرجات: ٥٠ درجة (درجتان لكل سؤال)</span>
+    </div>
+    <div class="content">
+        <div style="margin-bottom: 15px; font-weight: bold;">أ.د/ عزة محمد خضر – أستاذ المقرر</div>
+        <p style="margin-bottom: 20px;"><strong>السؤال الأول: اختر الإجابة الصحيحة مما يلي (٢٥ سؤالاً × ٢ درجة = ٥٠ درجة)</strong></p>
+        <div id="questionsArea"></div>
+        <div class="submit-area">
+            <button class="submit-exam" id="finalCorrection">📝 تصحيح الامتحان وعرض النتيجة</button>
+            <div id="finalResult" class="result-box"></div>
+            <a href="https://wa.me/201156229265?text=السلام%20عليكم%20دكتور%20عزة،%20لدي%20استفسار%20بخصوص%20امتحان%20الحشرات" target="_blank" class="whatsapp-float">
+                📱 تواصل عبر واتساب مع الأستاذ (01156229265)
+            </a>
+            <footer>الامتحان مكون من 25 سؤالاً إجبارياً. الإجابات الصحيحة + الدليل من المذكرة تظهر بعد التصحيح.</footer>
+        </div>
+    </div>
+</div>
+
+<script>
+    // === أسئلة الامتحان الرسمية (نفس ورقة الأسئلة المذكورة) ===
+    // كل سؤال: النص، الخيارات، الإجابة الصحيحة (0-index)، الدليل
+    const examQuestions = [
+        { text: "ما هي السمة الأساسية للتحول في الحشرات عديمة الأجنحة؟", options: ["تحول معقد متعدد المراحل", "تغير شكلي بسيط منذ الفقس", "تطور تدريجي للأجنحة", "وجود طور عذراء متميز"], correct: 1, proof: "المذكرة ص69 (Ametabola): لا يوجد تحول ملحوظ، الأطوار غير الكاملة تشبه البالغ في الشكل ما عدا الحجم والأعضاء التناسلية." },
+        { text: "ما هي المادة الأساسية المكونة للكيوتيكل؟", options: ["البروتين فقط", "الكيتين فقط", "مركبات دهنية فقط", "اتحاد الكيتين مع البروتين"], correct: 3, proof: "صفحة 5: جدار الجسم الخارجي يتكون من مادة كيتينية صلبة مع بروتين سكليروتيني." },
+        { text: "ما هي الوظيفة الأساسية للفكين السفليين في أجزاء فم الصرصور؟", options: ["كس الطعام المقضوم وتوجيهه نحو فتحة الفم", "تنقيب الأنسجة النباتية", "امتصاص السوائل", "تقطيع الغذاء الصلب"], correct: 0, proof: "صفحة 33: الفك السفلي وظيفته كنس الطعام المقطع ودفعه نحو فتحة الفم." },
+        { text: "ما هو الجزء الذي ينتج عن التحام الجلوستين في شغالة نحل العسل؟", options: ["التوتوجلوسا", "الألاجلوسا", "الباراجلوسا", "الجاليا"], correct: 1, proof: "صفحة 35: ينتج عن التحام الجلوستين فص لساني وسطى يسمى الألاجلوسا Alaglossa." },
+        { text: "ما هي الصفة الرئيسية لنمو الأجنحة في الحشرات داخلية الأجنحة (Endopterygota)؟", options: ["تتشكل الأجنحة بدون أي تحول", "تظهر الأجنحة مباشرة بعد الانسلاخ الأخير", "تنمو الأجنحة من براعم داخلية خلال مرحلة اليرقة", "تنمو الأجنحة خارجياً خلال مرحلة الحورية"], correct: 2, proof: "صفحة 55-56: تنمو الأجنحة في Endopterygota من براعم داخلية (imaginal buds) تظهر أثناء طور اليرقة." },
+        { text: "ما هو الشاذ في حشرات ذوات الذنب القافز (Collembola) فيما يتعلق بتقسيم البطن؟", options: ["تفتقر تماماً إلى الثغور التنفسية", "لا يزيد عدد حلقاتها البطنية عن ست حلقات", "حلقاتها ملتحمة مع بعضها", "لديها حلقات أكثر من الحشرات الأخرى"], correct: 1, proof: "صفحة 8: Collembola تتكون من 6 حلقات بطنية فقط (أقل من النموذج الأساسي)." },
+        { text: "ما الذي يميز الحلقات الحشوية أو حلقات ما قبل أعضاء التناسل في بطن الحشرة؟", options: ["هي الحلقات السبع الأولى التي تحتوي على معظم الأحشاء", "هي الحلقات الثلاث الأخيرة", "تفتقر إلى الثغور التنفسية", "تحتوي على الأعضاء التناسلية فقط"], correct: 0, proof: "صفحة 58: الحلقات الحشوية visceral segments (عادة السبع الأولى) تحتوي الأحشاء." },
+        { text: "ما هي العلاقة بين حجم الأجنحة وتطور القطع الصدرية في الحشرات المجنحة؟", options: ["لا توجد علاقة", "حجم الجناح يتناسب عكسياً مع حجم القطعة الصدرية", "حجم الجناح يؤثر فقط على تطور الصدر الأمامي", "حجم الجناح يتناسب طردياً مع حجم القطعة الصدرية المرتبطة به"], correct: 3, proof: "صفحة 49: الأجنحة متصلة بالترجات الصدرية؛ حجم الجناح يتناسب مع تطور الترجة." },
+        { text: "كيف تختلف الحراشيف عن الزوائد الجليدية الأخرى؟", options: ["تنتج من خلايا بشرة متعددة", "هي شعيرات مفلطحة متصلة بواسطة حامل رقيق", "توجد حصراً على قرون استشعار الفراشات", "هي تراكيب صلبة وغير متحركة"], correct: 1, proof: "صفحة 20: الشعيرات والحراشيف هي شعيرات مفلطحة ذات حامل رقيق، تختلف عن الزوائد العادية." },
+        { text: "ماهي وظيفة النموات الجليدية الداخلية (apodemes)؟", options: ["تراكيب واقية خارجية", "تسهل حركة الزوائد", "تشارك في الإدراك الحسي", "تشكل الهيكل الداخلي وتوفر نقاط ارتباط للعضلات"], correct: 3, proof: "صفحة 24: Apodemes هي النموات الداخلية التي تشكل الهيكل الداخلي وترتبط بها العضلات." },
+        { text: "ما هي النظرية الأكثر قبولاً لتفسير نشأة أجنحة الحشرات؟", options: ["نظرية النتوءات الصدرية", "نظرية الخياشيم القصبية", "نظرية التطور المباشر", "نظرية الأطراف المتحورة"], correct: 0, proof: "صفحة 49: النظرية الأكثر قبولاً هي نظرية النتوءات الصدرية الجانبية." },
+        { text: "ما هو التحور الذي يحدث في آلة وضع البيض في غشائية الأجنحة لتشكيل آلة اللسع؟", options: ["تتحور الصمامات العلوية إلى رماح", "تتحور الصمامات السفلية إلى رماح", "تتحور جميع الصمامات إلى رماح", "تتحور الصمامات الجانبية"], correct: 1, proof: "صفحة 62: الصمامان السفليان (lancets) هما الجزء العامل في آلة اللسع." },
+        { text: "أي من الحشرات التالية تعتبر مثالاً على انعدام الأجنحة كصفة مكتسبة (ثانوية)؟", options: ["حشرات جلدية الأجنحة (Dermaptera)", "حشرات متساوية الأجنحة (Homoptera)", "حشرات ذباب مايو (Ephemeroptera)", "القمل (Phthiraptera)"], correct: 3, proof: "صفحة 60: القمل اختفى فيه الأجنحة نهائياً نتيجة التطفل (صفة مكتسبة)." },
+        { text: "الغشاء المحي (Chorion) في بيض الحشرات؟", options: ["هو القشرة الخارجية الواقية", "يعمل كآلية للتنفس", "يحتوي على ثقوب النقير لدخول الحيوانات المنوية", "جميع ما سبق"], correct: 3, proof: "صفحة 64: الكوريون قشرة صلبة تحمي، بها فتحات التنفس والميكروبايل لدخول الحيوانات المنوية." },
+        { text: "ما الذي يميز التكاثر العذري المؤقت؟", options: ["الحدوث غير المنتظم اعتماداً على توفر الذكور", "الإنتاج الدائم للذكور من البيض غير المخصب", "الإنتاج المستمر للإناث فقط", "التناوب المنتظم بين الأجيال الجنسية واللاجنسية"], correct: 0, proof: "صفحة 11-68: التكاثر البكري المؤقت يحدث عندما تغيب الذكور لفترة." },
+        { text: "ما الذي يميز ظاهرة تعدد الأجنة في الحشرات المتطفلة؟", options: ["خروج عدة حشرات بالغة من بيضة واحدة", "التطور المباشر بدون تحول", "إنتاج الإناث فقط", "هو الولادة الحية"], correct: 0, proof: "صفحة 68: في Polyembryony تتطور بيضة طفيلية واحدة إلى العديد من الأجنة." },
+        { text: "نوع التكاثر الذي يتضمن تطور البيض داخل المهبل مع تغذية اليرقات على إفرازات الغدد الإضافية؟", options: ["التكاثر البياض (Oviparity)", "الولادة الحية الحقيقية (Viviparity)", "التكاثر العذري", "تعدد الأجنة"], correct: 1, proof: "صفحة 66: الولادة الحية viviparity حيث تتغذى الأجنة داخل الأنثى." },
+        { text: "ما هي وظيفة القصبات الهوائية الكاذبة (pseudotracheae) في الشفيتان في أجزاء فم الذباب؟", options: ["توصيل الطعام السائل عن طريق الخاصية الشعرية", "نقل الهواء للتنفس", "اكتشاف جزيئات الطعام", "إفراز الإنزيمات الهاضمة"], correct: 0, proof: "صفحة 37: القصبات الكاذبة تمتص السوائل بالخاصية الشعرية." },
+        { text: "أي التراكيب تشكل القناة الغذائية في أجزاء الفم الثاقبة الماصة (مثل البعوض)؟", options: ["انطباق الشفة العليا وسقف الحلق على زائدة تحت البلعوم", "اندماج الفكوك العلوية والسفلية", "تحور الملامس الشفوية", "اتحاد الشفة السفلى مع الفكوك"], correct: 0, proof: "صفحة 39: القناة الغذائية تتكون من انطباق الشفة العليا وسقف الحلق على زائدة تحت البلعوم." },
+        { text: "ما هو التسلسل الصحيح للأحداث أثناء انسلاخ الحشرات؟", options: ["انفصال الكيوتيكل القديم - تكوين كيوتيكل جديد - هضم الكيوتيكل القديم - الخروج", "تكوين كيوتيكل جديد - انفصال الكيوتيكل القديم - الخروج - هضم الكيوتيكل القديم", "هضم الكيوتيكل القديم - تكوين كيوتيكل جديد - الخروج - انفصال الكيوتيكل", "تكوين كيوتيكل جديد - هضم الكيوتيكل القديم - انفصال الكيوتيكل - الخروج"], correct: 1, proof: "صفحة 78: أولاً تفرز البشرة الداخلية طبقة كيوتيكل جديدة، ثم يحدث انفصال، ثم الانسلاخ والهضم." },
+        { text: "لماذا يعتبر صغر حجم الحشرات ميزة تكيفية مهمة؟", options: ["يقلل من قدرتها على الطيران", "يساعد في عملية التكاثر", "يسهل عملية التنفس", "يمكنها من العيش على كميات قليلة من الغذاء والاختباء من الأعداء"], correct: 3, proof: "صفحة 10: الصغر يساعد على المعيشة بقليل الغذاء والاختفاء من الأعداء." },
+        { text: "في أي نوع من التشكل تتشابه الحورية مع الحشرة الكاملة في التركيب والسلوك؟", options: ["التشكل غير المباشر (Holometabola)", "التشكل المتباين (Heterometabola)", "التشكل التدريجي (Paurometabola)", "التشكل الكامل"], correct: 2, proof: "صفحة 70: في Paurometabola (التشكل التدريجي) الحورية تشبه البالغ." },
+        { text: "ما الذي يميز التشكل المفرط Hypermetabola في تطور اليرقات؟", options: ["وجود طور يرقي واحد فقط", "ظهور أشكال مختلفة من اليرقات خلال التطور", "تخطي طور العذراء", "جميع أطوار اليرقة متشابهة"], correct: 1, proof: "صفحة 75: التشكل المفرط تظهر فيه يرقات بأشكال مختلفة (مثل ذباب السيرفيد)." },
+        { text: "أثناء تغذية إناث البعوض على الدم، ما الذي يمنع تجلط الدم في العائل؟", options: ["العمل الميكانيكي للفكوك", "تركيب القناة الغذائية", "اللعاب المفرز عبر زائدة تحت البلعوم", "حركة الشفة السفلى"], correct: 2, proof: "صفحة 40: اللعاب المفرز من زائدة تحت البلعوم يحتوي على مواد مضادة للتجلط." },
+        { text: "ما هي الخاصية الفريدة التي تسمح للنمل الأبيض بهضم الخشب؟", options: ["وجود البروتوزوا في معدته الخلفية (التكافل)", "إنزيمات خاصة في اللعاب", "تكافل فطري في جسمه", "مستعمرات بكتيرية في أمعائه"], correct: 0, proof: "صفحة 14: النمل الأبيض يحتوي على بروتوزوا تكافلية تهضم السليلوز." }
+    ];
+
+    const questionsContainer = document.getElementById('questionsArea');
+    
+    function renderQuestions() {
+        let html = '';
+        examQuestions.forEach((q, idx) => {
+            html += `
+                <div class="question-card" id="qCard${idx}">
+                    <div class="q-text">${idx+1}. ${q.text}</div>
+                    <ul class="options">
+                        ${q.options.map((opt, optIdx) => `
+                            <li><label><input type="radio" name="q${idx}" value="${optIdx}"> ${opt}</label></li>
+                        `).join('')}
+                    </ul>
+                    <button class="btn-correct" data-idx="${idx}" data-type="single">🔍 تأكيد الإجابة (فردي)</button>
+                    <div class="feedback" id="fb${idx}"></div>
+                </div>
+            `;
+        });
+        questionsContainer.innerHTML = html;
+        
+        // إضافة حدث فردي لكل زر تأكيد
+        document.querySelectorAll('.btn-correct[data-type="single"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const qIdx = parseInt(btn.getAttribute('data-idx'));
+                const selectedRadio = document.querySelector(`input[name="q${qIdx}"]:checked`);
+                const fbDiv = document.getElementById(`fb${qIdx}`);
+                if (!selectedRadio) {
+                    fbDiv.innerHTML = '⚠️ يرجى اختيار إجابة أولاً.';
+                    fbDiv.style.background = "#fff3e0";
+                    return;
+                }
+                const userAns = parseInt(selectedRadio.value);
+                const correctAns = examQuestions[qIdx].correct;
+                if (userAns === correctAns) {
+                    fbDiv.innerHTML = `✅ صحيح!<br>📘 الدليل: ${examQuestions[qIdx].proof}`;
+                    fbDiv.className = 'feedback correct-feedback';
+                } else {
+                    const correctText = examQuestions[qIdx].options[correctAns];
+                    fbDiv.innerHTML = `❌ خطأ. الإجابة الصحيحة: ${correctText}<br>📘 الدليل: ${examQuestions[qIdx].proof}`;
+                    fbDiv.className = 'feedback wrong-feedback';
+                }
+            });
+        });
+    }
+
+    // التصحيح النهائي لجميع الأسئلة
+    function finalCorrectionHandler() {
+        let totalScore = 0;
+        let resultsHtml = '<div style="text-align:right;"><strong>📊 نتيجة الامتحان النهائي:</strong><br><ul style="list-style:none;">';
+        for (let i = 0; i < examQuestions.length; i++) {
+            const selectedRadio = document.querySelector(`input[name="q${i}"]:checked`);
+            let isCorrect = false;
+            let userAnswerIdx = -1;
+            if (selectedRadio) {
+                userAnswerIdx = parseInt(selectedRadio.value);
+                if (userAnswerIdx === examQuestions[i].correct) {
+                    isCorrect = true;
+                    totalScore += 2;
+                }
+            }
+            const correctAnsText = examQuestions[i].options[examQuestions[i].correct];
+            const mark = isCorrect ? '✅' : '❌';
+            resultsHtml += `<li>${mark} السؤال ${i+1}: الإجابة الصحيحة "${correctAnsText}" - (${isCorrect ? '+2' : '0'}) درجة. مرجع: ${examQuestions[i].proof.substring(0,70)}...</li>`;
+            // تحديث الفيدباك الخاص بكل سؤال بشكل تلقائي دون الحاجة للضغط الفردي
+            const fbDiv = document.getElementById(`fb${i}`);
+            if(fbDiv){
+                if(isCorrect){
+                    fbDiv.innerHTML = `✅ تلقائي: صحيح!<br>📘 ${examQuestions[i].proof}`;
+                    fbDiv.className = 'feedback correct-feedback';
+                } else if(selectedRadio){
+                    fbDiv.innerHTML = `❌ تلقائي: خاطئ. الإجابة الصحيحة: ${correctAnsText}<br>📘 ${examQuestions[i].proof}`;
+                    fbDiv.className = 'feedback wrong-feedback';
+                } else {
+                    fbDiv.innerHTML = `⚠️ لم تجب. الإجابة الصحيحة: ${correctAnsText}<br>📘 ${examQuestions[i].proof}`;
+                    fbDiv.className = 'feedback wrong-feedback';
+                }
+            }
+        }
+        resultsHtml += `</ul><div style="font-size:1.3rem; margin-top:15px;">🎯 الدرجة الكلية: ${totalScore} من 50 درجة</div>`;
+        if(totalScore >= 40) resultsHtml += '<div style="color:#1f5c1a;">⭐ ممتاز - اجتياز بتفوق</div>';
+        else if(totalScore >= 25) resultsHtml += '<div style="color:#d98c00;">✔ مقبول - راجع النقاط الضعيفة</div>';
+        else resultsHtml += '<div style="color:#b33;">⚠ تحتاج مراجعة المادة</div>';
+        resultsHtml += '</div>';
+        const resultDiv = document.getElementById('finalResult');
+        resultDiv.innerHTML = resultsHtml;
+        resultDiv.style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+    
+    renderQuestions();
+    document.getElementById('finalCorrection').addEventListener('click', finalCorrectionHandler);
+</script>
+</body>
+</html>
