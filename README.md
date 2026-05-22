@@ -1,149 +1,285 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>أساسيات علم الحشرات</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gio Ahmed Hasan</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Tahoma, Arial;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#0f172a,#1e293b);
+    background:linear-gradient(-45deg,#020617,#0f172a,#1e293b,#2563eb);
+    background-size:400% 400%;
+    animation:bg 12s ease infinite;
     min-height:100vh;
-    color:white;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
 }
 
-header{
-    width:100%;
-    padding:25px;
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+/* خلفية متحركة */
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
-header h1{
-    font-size:32px;
-    color:#38bdf8;
+/* الحشرات */
+
+.bug{
+    position:absolute;
+    font-size:30px;
+    opacity:0.5;
+    animation:moveBug linear infinite;
 }
+
+.b1{
+    top:10%;
+    left:-10%;
+    animation-duration:15s;
+}
+
+.b2{
+    top:40%;
+    left:-15%;
+    animation-duration:18s;
+}
+
+.b3{
+    top:75%;
+    left:-10%;
+    animation-duration:12s;
+}
+
+.b4{
+    top:20%;
+    left:-12%;
+    animation-duration:20s;
+}
+
+@keyframes moveBug{
+    from{
+        transform:translateX(0) rotate(0deg);
+    }
+    to{
+        transform:translateX(120vw) rotate(360deg);
+    }
+}
+
+/* الكونتينر */
 
 .container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:30px;
-    flex-wrap:wrap;
-    padding:50px 20px;
+    width:90%;
+    max-width:430px;
+    text-align:center;
+    z-index:2;
 }
 
+/* العنوان */
+
+.title{
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:35px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #38bdf8;
+    }
+    to{
+        text-shadow:0 0 25px #ffffff;
+    }
+}
+
+/* الكروت */
+
 .card{
-    width:320px;
-    height:180px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.2);
     border-radius:25px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
+    padding:25px;
+    margin:22px 0;
     cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    transition:0.4s;
+    overflow:hidden;
+    position:relative;
+    animation:float 3s ease-in-out infinite;
 }
 
 .card:hover{
-    transform:translateY(-8px) scale(1.03);
-    background:#0ea5e9;
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 30px rgba(255,255,255,0.25);
 }
 
-.card h2{
-    font-size:28px;
-    margin-bottom:10px;
-}
+/* لمعة */
 
-.card p{
-    font-size:16px;
-}
-
-.viewer{
-    width:100%;
-    height:80vh;
-    margin-top:20px;
-    display:none;
-}
-
-iframe{
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
     width:100%;
     height:100%;
-    border:none;
-    background:white;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.3),
+        transparent
+    );
+    animation:shine 3s infinite;
 }
 
-.backBtn{
-    display:none;
-    margin:20px auto;
-    padding:12px 30px;
-    border:none;
-    border-radius:12px;
-    background:#ef4444;
+@keyframes shine{
+    100%{
+        left:120%;
+    }
+}
+
+.icon{
+    font-size:55px;
+    margin-bottom:15px;
+    animation:jump 2s infinite;
+}
+
+.card-title{
     color:white;
-    font-size:18px;
-    cursor:pointer;
-    transition:0.3s;
+    font-size:24px;
+    font-weight:bold;
 }
 
-.backBtn:hover{
-    background:#dc2626;
+@keyframes jump{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
 }
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+    100%{transform:translateY(0);}
+}
+
+/* القائمة الفرعية */
+
+.submenu{
+    display:none;
+    margin-top:18px;
+    animation:fade 0.6s ease;
+}
+
+.submenu a{
+    display:block;
+    text-decoration:none;
+    background:rgba(255,255,255,0.15);
+    color:white;
+    margin:12px 0;
+    padding:15px;
+    border-radius:15px;
+    transition:0.3s;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.submenu a:hover{
+    background:#38bdf8;
+    transform:scale(1.03);
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>منصة أساسيات علم الحشرات</h1>
-</header>
+<!-- الحشرات -->
 
-<div class="container" id="menu">
+<div class="bug b1">🐞</div>
+<div class="bug b2">🦋</div>
+<div class="bug b3">🐜</div>
+<div class="bug b4">🐝</div>
 
-    <div class="card" onclick="openPage('https://koka8721416-coder.github.io/koka2/')">
-        <h2>امتحان سابق</h2>
-        <p>اضغط للدخول</p>
-    </div>
+<div class="container">
 
-    <div class="card" onclick="openPage('https://koka8721416-coder.github.io/koka/')">
-        <h2>بنك أسئلة 100 سؤال</h2>
-        <p>اضغط للدخول</p>
-    </div>
+<div class="title">
+Create by Gio Ahmed Hasan
+</div>
+
+<!-- حفريات -->
+
+<div class="card" onclick="toggleMenu()">
+
+<div class="icon">🪨</div>
+
+<div class="card-title">
+حفريات
+</div>
+
+<div class="submenu" id="submenu">
+
+<a href="https://koka8721416-coder.github.io/Exam/" target="_blank">
+79 اختياري + 50 صح وغلط
+</a>
+
+<a href="https://koka8721416-coder.github.io/gh/" target="_blank">
+السابق + الشيت + التكليف حفريات
+</a>
 
 </div>
 
-<button class="backBtn" id="backBtn" onclick="goBack()">⬅ الرجوع للرئيسية</button>
+</div>
 
-<div class="viewer" id="viewer">
-    <iframe id="frame"></iframe>
+<!-- حشرات -->
+
+<div class="card"
+onclick="window.open('https://koka8721416-coder.github.io/Ahmed-Hasan/')">
+
+<div class="icon">🐞</div>
+
+<div class="card-title">
+حشرات
+</div>
+
+</div>
+
 </div>
 
 <script>
 
-function openPage(link){
-    document.getElementById("frame").src = link;
-    document.getElementById("viewer").style.display = "block";
-    document.getElementById("backBtn").style.display = "block";
-    document.getElementById("menu").style.display = "none";
+function toggleMenu(){
+
+let menu = document.getElementById("submenu");
+
+if(menu.style.display === "block"){
+    menu.style.display = "none";
+}
+else{
+    menu.style.display = "block";
 }
 
-function goBack(){
-    document.getElementById("viewer").style.display = "none";
-    document.getElementById("backBtn").style.display = "none";
-    document.getElementById("menu").style.display = "flex";
-    document.getElementById("frame").src = "";
 }
 
 </script>
